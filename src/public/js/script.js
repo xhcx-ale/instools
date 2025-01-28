@@ -23,8 +23,31 @@ ${fecha.formatoFecha}
 Total: ${suma}
          `
          
-         return encodeURI(msg)
+         return msg
  }
+ 
+ const sender = async(msg) => {
+    const telegram_bot_id = '7905079405:AAF9dtA-0Dr6Cl9ko6WwcK9tknt3WlzziFs',
+    chat_id = '-4644107466';
+    
+    let settings = {
+      "async": true,
+      "crossDomain": true,
+      "url": "https://api.telegram.org/bot" + telegram_bot_id + "/sendMessage",
+      "method": "POST",
+      "headers": {
+        "Content-Type": "application/json",
+        "cache-control": "no-cache"
+      },
+      "data": JSON.stringify({
+        "chat_id": chat_id,
+        "text": msg
+      })
+    };
+    await $.ajax(settings).done( function(response) {
+      console.log(response)
+    })
+  }
   
  const optSel = document.querySelector('.optSel')
   
@@ -33,9 +56,10 @@ Total: ${suma}
     switch( optSel.selectedIndex ) {
       case 1:
         $('.totalVent').css('display', 'block')
-       // $('.smr').click( () => msgSend(venta()) )
         $('.smr').click( () => {
-          msgSend(venta())
+          const msg = venta()
+          msgSend(encodeURI(msg))
+          sender(msg)
         } )
         $('input').on('input', () => {
           sumaVenta()
