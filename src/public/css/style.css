@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-size: 16px;
+}
+body p, body h1, body h2, body h3, body h4, body h5, body h6, body img {
+  margin: 0;
+  padding: 0;
+}
+body .navbar {
+  backdrop-filter: blur(3px);
+  font-family: Creepster, system-ui;
+}
+body .navbar .thBtn {
+  aspect-ratio: 1/1;
+  border-radius: 50%;
+}
+body .navbar .light {
+  background: #fff;
+  color: #000;
+}
+body .navbar .dark {
+  background: #212529;
+  color: #fff;
+}
+body .main {
+  align-content: center;
+  min-height: 100vh;
+}
+body .main .toolsCard {
+  margin: 0 auto;
+  width: 50%;
+}
+body .main .toolsCard .tlCdBody .toolSel {
+  padding: 5px;
+}
+body .main .toolsCard .tlCdBody .toolSel .optSel {
+  background: none;
+  border: none;
+  border-bottom: 2px solid #fff;
+  font-size: 0.9rem;
+  outline: 0;
+  padding: 10px;
+  width: 60%;
+}
+body .main .toolsCard .tlCdBody .toolSel .date {
+  font-size: 0.8rem;
+  font-weight: bold;
+  margin-top: 5px;
+}
+body .main .toolsCard .tlCdBody .mainTool .totalVent {
+  display: none;
+}
+body .main .toolsCard .tlCdBody .mainTool .totalVent .turno {
+  align-items: center;
+  display: flex;
+  font-size: 1.2rem;
+  font-weight: bold;
+  justify-content: space-around;
+  padding: 10px;
+}
+body .main .toolsCard .tlCdBody .mainTool .totalVent .turno .t1cl {
+  color: #00cc66;
+}
+body .main .toolsCard .tlCdBody .mainTool .totalVent .turno .t2cl {
+  color: #3399ff;
+}
+body .main .toolsCard .tlCdBody .mainTool .totalVent .turno .t3cl {
+  color: #ff0000;
+}
+body .main .toolsCard .tlCdBody .mainTool .totalVent .turno input {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  outline: 0;
+  text-align: center;
+  width: 60%;
+}
+body .main .toolsCard .tlCdBody .mainTool .totalVent .ctrl button {
+  background: #25D366;
+  margin: 15px 0 15px 0;
+}
+
+@media screen and (max-width: 550px) {
+  body .main .toolsCard {
+    width: 90%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

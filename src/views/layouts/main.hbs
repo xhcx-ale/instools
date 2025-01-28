@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es_mx">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vacantes {{title}}</title>
+    {{>head}}
+</head>
+<body data-bs-theme="dark">
+  {{>navigation}}
+    
+    <div class="main">
+        {{{body}}}
+    </div>
+      {{>footer}}
+    <script>
+    /*
+    const settings = (th) => {
+      if (th == 'light') {
+        $('body').attr('data-bs-theme', th)
+        $('.ico').removeClass('bi-sun-fill')
+        $('.ico').addClass('bi-moon-fill')
+        $('.thBtn').removeClass('light')
+        $('.thBtn').addClass('dark')
+      } else if (th == 'dark') {
+        $('body').attr('data-bs-theme', th)
+        $('.ico').removeClass('bi-moon-fill')
+        $('.ico').addClass('bi-sun-fill')
+        $('.thBtn').removeClass('dark')
+        $('.thBtn').addClass('light')
+      }
+    }
+    
+    const setTheme = (theme) => {
+       // localStorage.setItem('theme', theme)
+      const icon = document.querySelector('.ico').classList.toString()
+      
+      switch (icon) {
+        case 'ico bi bi-moon-fill':
+          settings('light')
+          localStorage.setItem('theme', 'light')
+          break;
+          case 'ico bi bi-sun-fill':
+          settings('dark')
+          localStorage.setItem('theme', 'dark')
+          break;
+          default:
+          console.log('err')
+      }
+    }
+      const theme = localStorage.getItem('theme')
+      if ( theme == 'light' ) {
+        //setTheme(theme)
+        settings('light')
+      } else if ( theme == 'dark' ) {
+        //setTheme(theme)
+        settings('dark')
+      }
+      
+      $('.thBtn').click( () =>{
+        $('.ico').toggleClass('bi-sun-fill')
+        $('.ico').toggleClass('bi-moon-fill')
+        setTheme()
+      })*/
+      
+  const settings = (theme) => {
+  $('body').attr('data-bs-theme', theme);
+  const isLight = theme === 'light';
+  $('.ico').toggleClass('bi-sun-fill', !isLight).toggleClass('bi-moon-fill', isLight);
+  $('.thBtn').toggleClass('dark', isLight).toggleClass('light', !isLight);
+}
+
+const setTheme = () => {
+  const currentTheme = $('.ico').hasClass('bi-moon-fill') ? 'light' : 'dark';
+  settings(currentTheme);
+  localStorage.setItem('theme', currentTheme);
+}
+
+const savedTheme = localStorage.getItem('theme');
+if (savedTheme) {
+  settings(savedTheme);
+}
+
+$('.thBtn').click(() => {
+  $('.ico').toggleClass('bi-sun-fill bi-moon-fill');
+  setTheme();
+});
+      
+    </script>
+
+</body>
+</html>
