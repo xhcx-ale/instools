@@ -35,24 +35,36 @@ $(document).ready( () => {
         return sucursal = '2AB'
         break
       case 2:
-        return sucursal = 'LN2'
+        return sucursal = 'ANTIGONA'
         break
       case 3:
-        return sucursal = 'LNO'
+        return sucursal = 'CUAUHTÉMOC'
         break
       case 4:
-        return sucursal = 'RCS'
+        return sucursal = 'LN2'
         break
       case 5:
-        return sucursal = 'SMB'
+        return sucursal = 'LNO'
         break
       case 6:
-        return sucursal = 'TEC'
+        return sucursal = 'ORDOÑEZ'
         break
       case 7:
-        return sucursal = 'TEC 2'
+        return sucursal = 'RODAS'
         break
       case 8:
+        return sucursal = 'RCS'
+        break
+      case 9:
+        return sucursal = 'SMB'
+        break
+      case 10:
+        return sucursal = 'TEC 2'
+        break
+      case 11:
+        return sucursal = 'TEC 1'
+        break
+      case 12:
         return sucursal = 'WALMART'
         break
         default:
