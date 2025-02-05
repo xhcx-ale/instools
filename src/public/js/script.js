@@ -3,24 +3,75 @@ $(document).ready( () => {
   const T1 = document.querySelector('.t1'),
         T2 = document.querySelector('.t2'),
         T3 = document.querySelector('.t3')
+        
+  let sucursal = 'INSURGENTES'
   
  const sumaVenta = () => {
-   const total = Number(T1.value) + Number(T2.value) + Number(T3.value)
+   let N1 = Number(T1.value),
+       N2 = Number(T2.value),
+       N3 = Number(T3.value)
+   const total = N1 + N2 + N3
    $('.vntTotal').text(`$${total}`)
-   return total
+       N1?N1 = `$${N1}`:N1 = ''
+       N2?N2 = `$${N2}`:N2 = ''
+       N3?N3 = `$${N3}`:N3 = ''
+   return {
+     N1,
+     N2,
+     N3,
+     total
+   }
  }
+ 
+ const aggComa = (numero) => {
+   return numero.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,')
+ }
+ 
+ 
+   const selSuc = document.querySelector('.sucSel')
+   selSuc.onchange = function() {
+     switch( selSuc.selectedIndex ) {
+      case 1:
+        return sucursal = '2AB'
+        break
+      case 2:
+        return sucursal = 'LN2'
+        break
+      case 3:
+        return sucursal = 'LNO'
+        break
+      case 4:
+        return sucursal = 'RCS'
+        break
+      case 5:
+        return sucursal = 'SMB'
+        break
+      case 6:
+        return sucursal = 'TEC'
+        break
+      case 7:
+        return sucursal = 'TEC 2'
+        break
+      case 8:
+        return sucursal = 'WALMART'
+        break
+        default:
+        return sucursal = 'INSURGENTES'
+        break
+    }
+   }
   
  const venta = () => {
    const suma = sumaVenta()
    const msg = `
-INSURGENTES 
+${sucursal} 
 ${fecha.formatoFecha}
 *${fecha.diaSemana.toUpperCase()}*
-🟢T1: ${T1.value}
-🔵T2: ${T2.value}
-🔴T3: ${T3.value}
+🟢T1: ${aggComa(suma.N1)}
+🔵T2: ${aggComa(suma.N2)}
+🔴T3: ${aggComa(suma.N3)}
 
-Total: ${suma}
+Total: $${aggComa(suma.total)}
          `
          
          return msg
