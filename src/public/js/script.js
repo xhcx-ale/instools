@@ -76,7 +76,7 @@ $(document).ready( () => {
  const venta = () => {
    const suma = sumaVenta()
    const msg = `
-${sucursal} 
+*${sucursal}*
 ${fecha.formatoFecha}
 *${fecha.diaSemana.toUpperCase()}*
 🟢T1: ${aggComa(suma.N1)}
