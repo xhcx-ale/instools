@@ -50,6 +50,11 @@ body .main .toolsCard .tlCdBody .toolSel .date {
   font-weight: bold;
   margin-top: 5px;
 }
+body .main .toolsCard .tlCdBody .mainTool .adv {
+  align-content: center;
+  aspect-ratio: 1/1;
+  display: none;
+}
 body .main .toolsCard .tlCdBody .mainTool .totalVent {
   display: none;
 }
