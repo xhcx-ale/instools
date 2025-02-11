@@ -83,14 +83,14 @@ $(document).ready( () => {
   const venta = () => {
     const suma = sumaVenta()
     const msg = `
-    *${sucursal}*
-    ${fecha.formatoFecha}
-    *${fecha.diaSemana.toUpperCase()}*
-    🟢T1: ${aggComa(suma.N1)}
-    🔵T2: ${aggComa(suma.N2)}
-    🔴T3: ${aggComa(suma.N3)}
+*${sucursal}*
+${fecha.formatoFecha}
+*${fecha.diaSemana.toUpperCase()}*
+🟢T1: ${aggComa(suma.N1)}
+🔵T2: ${aggComa(suma.N2)}
+🔴T3: ${aggComa(suma.N3)}
     
-    Total: $${aggComa(suma.total)}
+Total: $${aggComa(suma.total)}
     `
     
     return msg
