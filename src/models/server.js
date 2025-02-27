@@ -1,3 +1,6 @@
+import {
+  ventaRoutes
+} from '../routes/index.routes.js'
 import express from "express";
 import cors from "cors";
 //import fileUpload from "express-fileupload";
@@ -5,7 +8,7 @@ import { dirname, extname, join } from "path";
 import morgan from "morgan";
 import { fileURLToPath } from "url";
 import { engine } from 'express-handlebars'
-//import { dbConnection } from "../database/config.db.js";
+import { dbConnection } from "../database/config.db.js";
 import  job  from '../helpers/cron.js'
 
 class Server {
@@ -24,18 +27,19 @@ class Server {
     this.app.set('view engine', '.hbs')
 
     this.paths = {
+      venta: '/venta',
     };
 
-    //this.dbCnn();
+    this.dbCnn();
     this.midlewares();
     this.routes();
     this.job.start()
   }
-/*
+
   async dbCnn() {
     await dbConnection();
   }
-*/
+
   midlewares() {
     this.app.use(cors());
     this.app.use(express.static(join(this.__dirname, "/../public")));
@@ -51,6 +55,7 @@ class Server {
   }
 
   routes() {
+    this.app.use(this.paths.venta, ventaRoutes),
     this.app.get('/', (req, res) => {
     res.render('index')
 })
