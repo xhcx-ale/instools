@@ -127,7 +127,8 @@ Total: $${aggComa(suma.total)}
       case 1:
         putOnBlock('.totalVent')
         putNone('.adv')
-        $('.smr').click( () => {
+        $('.smr').click( (e) => {
+          e.preventDefault()
           const msg = venta()
           msgSend(encodeURI(msg))
           sender(msg)

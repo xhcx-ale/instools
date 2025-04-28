@@ -1,6 +1,9 @@
 import {
-  ventaRoutes
-} from '../routes/index.routes.js'
+  authRoutes,
+  dorkRoutes,
+  usrAdmRoutes,
+  ventaRoutes,
+} from '../routes/index.js'
 import express from "express";
 import cors from "cors";
 //import fileUpload from "express-fileupload";
@@ -27,6 +30,9 @@ class Server {
     this.app.set('view engine', '.hbs')
 
     this.paths = {
+      auth: '/auth',
+      users: '/admin/users',
+      dorks: '/dorks',
       venta: '/venta',
     };
 
@@ -55,6 +61,9 @@ class Server {
   }
 
   routes() {
+    this.app.use(this.paths.auth, authRoutes),
+    this.app.use(this.paths.dorks, dorkRoutes),
+    this.app.use(this.paths.users, usrAdmRoutes),
     this.app.use(this.paths.venta, ventaRoutes),
     this.app.get('/', (req, res) => {
     res.render('index')

@@ -2,8 +2,8 @@ import { Schema, model } from "mongoose";
 
 const ventaSchema = Schema({
   fecha: {
-    type: Date,
-    default: Date.now,
+    type: String,
+    unique: true
   },
   /*sucursal: {
     type: Schema.Types.ObjectId,
@@ -28,8 +28,7 @@ const ventaSchema = Schema({
 });
 
 ventaSchema.methods.toJSON = function () {
-  const { fecha, ...data } = this.toObject();
-  data.id = fecha;
+  const data = this.toObject();
   return data;
 };
 
