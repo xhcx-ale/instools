@@ -1,5 +1,5 @@
 let mainAct = () => {
-  alert(`Cyberpsychosis v0.1`)
+  alert(`Cyberpsychosis v1.0`)
   const webMenuHTML = document.createElement('div')
 const webMenuCSS = document.createElement('style')
 //const webMenuJS = document.createElement('script')
@@ -223,9 +223,8 @@ fetch("https://ipapi.co/json")
       }
     })
     .catch(error => console.error('Error:', error))
-}
 
-fetch('http://localhost:4000/dorks')
+fetch('https://instools.onrender.com/dorks')
   .then(response => response.json())
   .then(data => {
     const dSel = document.querySelector('#dSel')
@@ -233,7 +232,9 @@ fetch('http://localhost:4000/dorks')
     data.forEach((obj) => {
       const opt = document.createElement('option')
       opt.text = obj.dork
+      opt.value = obj.dork
       dSel.appendChild(opt)
-      opt.addEventListener('focus', () => location.href = `https://www.google.com/search?q=inurl:${obj.dork}`)
+      dSel.addEventListener('change', () => document.querySelector('#drk').value = dSel.value)
     })
   })
+}
