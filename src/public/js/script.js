@@ -1,5 +1,14 @@
 $(document).ready( () => {
   
+window.addEventListener("scroll", function () {
+  const navbar = document.querySelector('.navbar');
+  if (window.scrollY > 50) {
+    navbar.style = 'background: rgba(30, 72, 88, 0.3); backdrop-filter: blur(3px);'
+  } else {
+   navbar.style = '--bs-bg-opacity: 0;'
+  }
+})
+  
   const T1 = document.querySelector('.t1'),
   T2 = document.querySelector('.t2'),
   T3 = document.querySelector('.t3')
@@ -83,14 +92,14 @@ $(document).ready( () => {
   const venta = () => {
     const suma = sumaVenta()
     const msg = `
-*${sucursal}*
-${fecha.formatoFecha}
-*${fecha.diaSemana.toUpperCase()}*
-🟢T1: ${aggComa(suma.N1)}
-🔵T2: ${aggComa(suma.N2)}
-🔴T3: ${aggComa(suma.N3)}
+    *${sucursal}*
+    ${fecha.formatoFecha}
+    *${fecha.diaSemana.toUpperCase()}*
+    🟢T1: ${aggComa(suma.N1)}
+    🔵T2: ${aggComa(suma.N2)}
+    🔴T3: ${aggComa(suma.N3)}
     
-Total: $${aggComa(suma.total)}
+    Total: $${aggComa(suma.total)}
     `
     
     return msg

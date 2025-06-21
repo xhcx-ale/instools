@@ -3,6 +3,8 @@
 }
 
 body {
+  background: url("../img/bg.jpg") no-repeat center center fixed;
+  background-size: cover;
   font-size: 16px;
 }
 body p, body h1, body h2, body h3, body h4, body h5, body h6, body img {
@@ -10,28 +12,33 @@ body p, body h1, body h2, body h3, body h4, body h5, body h6, body img {
   padding: 0;
 }
 body .navbar {
-  backdrop-filter: blur(3px);
   font-family: Creepster, system-ui;
+  /*
+  .light {
+    background: #fff;
+    color: #000;
+  }
+  .dark {
+    background: #212529;
+    color: #fff;
+  }*/
 }
 body .navbar .thBtn {
   aspect-ratio: 1/1;
   border-radius: 50%;
-}
-body .navbar .light {
-  background: #fff;
-  color: #000;
-}
-body .navbar .dark {
-  background: #212529;
-  color: #fff;
 }
 body .main {
   align-content: center;
   min-height: 100vh;
 }
 body .main .toolsCard {
+  background: rgba(30, 72, 88, 0.3);
+  backdrop-filter: blur(3px);
   margin: 0 auto;
   width: 50%;
+}
+body .main .toolsCard .tlCdBody {
+  background: none;
 }
 body .main .toolsCard .tlCdBody .toolSel {
   padding: 5px;
@@ -86,6 +93,10 @@ body .main .toolsCard .tlCdBody .mainTool .totalVent .turno input {
 body .main .toolsCard .tlCdBody .mainTool .totalVent .ctrl button {
   background: #25D366;
   margin: 15px 0 15px 0;
+}
+body .fot {
+  background: rgba(30, 72, 88, 0.3);
+  backdrop-filter: blur(3px);
 }
 
 @media screen and (max-width: 550px) {

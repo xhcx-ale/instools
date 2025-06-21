@@ -22,7 +22,11 @@ const ventaLoad = async(req, res) => {
   const date = obtenerFechaActual().formatoFecha
   const query = String(date)
   const hoy = await Venta.findOne({fecha:query})
-  if( hoy ) return res.json(hoy)
+   if(hoy) {
+     return res.json(hoy) 
+   }{
+     return res.json({msg: 'No se ha registrado la venta de hoy!'})
+   }
 }
 
 const ventaAdd = async(req, res) => {
@@ -38,7 +42,7 @@ const ventaAdd = async(req, res) => {
   }
   const venta = new Venta(data)
   await venta.save()
-  res.status(201).json(venta)
+  res.status(201)
 }
 
 export {

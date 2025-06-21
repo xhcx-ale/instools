@@ -19,7 +19,10 @@ import { roleExs, emailExs, usrIdExs } from "../helpers/index.js";
 
 const router = Router();
 
-router.get("/", usrGet);
+router.get("/", [
+  jwtVal,
+  admRole,
+  ], usrGet);
 
 router.post(
   "/",
